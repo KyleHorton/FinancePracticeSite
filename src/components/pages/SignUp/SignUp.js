@@ -1,11 +1,10 @@
 import React from 'react'
-import HeroSection from '../../HeroSection.js'
-import {homeObjThree} from '../../data/Data.js'
+import Form from '../../Form.js';
 
 function SignUp() {
     return (
         <>
-            <HeroSection {...homeObjThree} />
+        <Form />
         </>
     )
 }

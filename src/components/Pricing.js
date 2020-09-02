@@ -44,7 +44,7 @@ function Pricing() {
                                     <li>3.5% Cash Back</li>
                                     <li>$100,000 Limit</li>
                                 </ul>
-                                <Button className="btn--wide" buttonColor='primary'> Choose Plan </Button>
+                                <Button className="btn--wide" buttonColor='blue'> Choose Plan </Button>
                             </div>
                         </Link>
                         <Link to="/sign-up" className="pricing__container-card">
