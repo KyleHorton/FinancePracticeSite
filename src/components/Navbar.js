@@ -5,10 +5,12 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import { Button } from './Button';
 import './Navbar.css';
 import { IconContext } from 'react-icons/lib'
+import Dropdown from './Dropdown';
 
 function Navbar() {
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
+    const [dropdown, setDropdown] = useState(false);
     const showButton = () => {
         if (window.innerWidth <= 960){
             setButton(false);
@@ -16,6 +18,22 @@ function Navbar() {
             setButton(true)
         }
     };
+
+    const onMouseEnter = () => {
+        if (window.innerWidth < 960) {
+          setDropdown(false);
+        } else {
+          setDropdown(true);
+        }
+      };
+    
+      const onMouseLeave = () => {
+        if (window.innerWidth < 960) {
+          setDropdown(false);
+        } else {
+          setDropdown(false);
+        }
+      };    
 
     useEffect(() => {
         showButton();
@@ -44,10 +62,14 @@ function Navbar() {
                                 Home
                             </Link>
                         </li>
-                        <li className="nav-item">
+                        <li className="nav-item" 
+                            onMouseEnter={onMouseEnter}
+                            onMouseLeave={onMouseLeave}
+                            >
                             <Link to="/services" className="nav-links" onClick={closeMobileMenu}> 
                                 Services
                             </Link>
+                            {dropdown && <Dropdown />}
                         </li>
                         <li className="nav-item">
                             <Link to="/products" className="nav-links" onClick={closeMobileMenu}>
